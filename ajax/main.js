@@ -7,16 +7,34 @@ app.controller("formController",["$scope","$http",function($scope,$http){
 		description : "",
 	}
 
+	$scope.tasks = []
+
 	$scope.submitTask = function ( ) {
 		$http({
 			method    : "POST",
 			url       : "/form-submit",
-			data      : $scope.task
+			data      : angular.copy($scope.task)
 		}).then(function(returnData){
 			console.log(returnData)},function(error){
 				console.log(error)
 			})
+		$scope.task.title = ''
+		$scope.task.description = ''
 	}
+
+	$scope.getTasks = function ( ) {
+		$http({
+			method      : "GET",
+			url         : "/tasks"
+		}).then(function(returnData){
+			$scope.tasks = returnData.data
+		},function(error){
+			console.log("error!",error)
+		})
+	}
+
+	setInterval($scope.getTasks,1000)
+	// Now, every second, the app will call $scope.getTasks to get the tasks!
 
 }])
 	

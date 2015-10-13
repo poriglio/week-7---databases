@@ -14,6 +14,14 @@
 			<input ng-model="task.description">
 			<input type="submit">
 		</form>
+
+		<div>
+			<ul ng-repeat="task in tasks" style="list-style-type: none">
+				<li><strong>{{task.title}}:</strong></li>
+				<li>{{task.description}}</li>
+			</ul>
+		</div>
+
 		<script src="main.js"></script>
 	</body>
 </html>

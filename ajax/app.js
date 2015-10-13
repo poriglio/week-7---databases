@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require("./models/model.js");
 
 var app = express();
 
@@ -13,8 +14,22 @@ app.get("/", function(request,response){
 })
 
 app.post("/form-submit",function(request,response){
+	var newTask = new db.Task(request.body)
+	newTask.save(function(){
+		response.send("task received!")
+	})
+})
+
+app.get("/tasks",function(request,response){
 	console.log(request.body)
-	response.send("task received!")
+	db.Task.find({},function(error,data){
+		if(error){
+			console.log("error! error!")
+		}
+		else{
+			response.send(data)
+		}
+	})
 })
 
 var port = 3000
