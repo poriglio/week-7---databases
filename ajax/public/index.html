@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="formApp">
+	<head>
+		<title>AJAX Practice Form</title>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	</head>
+	<body ng-app="formController">
+<!-- 		<form action="/form-submit" method="POST"> Now that we are using AJAX, we can remore the action and method attributes. Same goes for the name attributes on the inputs. -->
+		<form ng-submit="submitTask()">
+			<label>Title</label>
+			<input ng-model="task.title">
+			<label>Description</label>
+			<input ng-model="task.description">
+			<input type="submit">
+		</form>
+		<script src="main.js"></script>
+	</body>
+</html>
