@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="bassApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	</head>
+	<body ng-controller="bassController">
+		<h1>{{greeting}}</h1>
+		<h2 ng-show="personalGreeting">Welcome back, {{user.name}}</h2>
+		<form ng-show="loginForm" ng-submit="loginUser()">
+			<input ng-model="username" placeholder="Username">
+			<input type="submit">
+		</form>
+		<script src="../js/main.js"></script>
+	</body>
+</html>
