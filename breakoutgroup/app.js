@@ -1,3 +1,4 @@
+
 var express = require("express")
 var bodyParser = require("body-parser")
 
@@ -6,6 +7,8 @@ var session = require("express-session")
 
 var mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost/breakinDB")
+
+var beatsCtrl = require("./controllers/beatController.js")
 
 var app = express()
 
@@ -40,6 +43,18 @@ app.post("/iamwho",function(req,res){
 	// Below, we add a username property to our session object:
 	req.session.username = req.body.username
 	res.send(req.session)
+})
+
+// BEAT ROUTES
+// api denotes that they only deal with data
+// they aren't ones you'll see on live sites
+
+// When we post to this, we are calling the createBeat function that lives in our controller.
+app.post("/api/beats", beatsCtrl.createBeat)
+app.get("/api/beats/:id",beatsCtrl.findBeats)
+
+app.get("/beats/:id",function(req,res){
+	res.sendFile("html/pictures.html",{root:"./public"})
 })
 
 var port = 3000

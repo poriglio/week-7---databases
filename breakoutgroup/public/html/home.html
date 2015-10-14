@@ -10,6 +10,21 @@
 			<input ng-model="username" placeholder="Username">
 			<input type="submit">
 		</form>
+		<form ng-submit="postBeat()" ng-if="beatsForm">
+			<input ng-model="newBeat.tempo" placeholder="tempo">
+			<input ng-model="newBeat.dopeness" placeholder="dopness">
+			<input ng-model="newBeat.distanceToDrop" placeholder="distance to drop">
+			<input ng-model="newBeat.bestFriend" placeholder="best friend">
+			<input ng-model="newBeat.favoriteSandwich" placeholder="favorite sandwich url">
+			<input type="submit">
+		</form>
+		<ul ng-repeat="beat in beats">
+			<h2><a href="/beats/{{beat._id}}">{{beat.tempo}}</a></h2>
+			<li>{{beat.favoriteSandwich}}</li>
+			<li>{{beat.dopeness}}</li>
+			<li>{{beat.distanceToDrop}}</li>
+			<li>{{beat.bestFriend}}</li>
+		</ul>
 		<script src="../js/main.js"></script>
 	</body>
 </html>

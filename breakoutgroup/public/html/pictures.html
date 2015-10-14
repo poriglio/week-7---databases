@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="bassApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	</head>
+	<body ng-controller="pictureController">
+		<h1>{{greeting}}</h1>
+		<ul ng-repeat="beat in beats">
+			<h2>{{beat.tempo}}</h2>
+			<li>{{beat.favoriteSandwich}}</li>
+			<li>{{beat.dopeness}}</li>
+			<li>{{beat.distanceToDrop}}</li>
+			<li>{{beat.bestFriend}}</li>
+			<img style="width:200px" ng-src="{{beat.favoriteSandwich}}">
+		</ul>
+		<script src="../js/main.js"></script>
+	</body>
+</html>
