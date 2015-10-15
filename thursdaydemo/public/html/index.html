@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="heroesApp">
+	<head>
+		<title>AJAX Heroes</title>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	</head>
+	<body ng-controller="heroesController">
+		<h1>AJAX Heroes</h1>
+		<h2>{{greeting}}</h2>
+		<form ng-submit="createHero()">
+			<input type="text" ng-model="newHero.name" placeholder="name">
+			<input type="text" ng-model="newHero.powers" placeholder="powers">
+			<input type="text" ng-model="newHero.HQ" placeholder="HQ">
+			<input type="text" ng-model="newHero.alignment" placeholder="alignment">
+			<input type="text" ng-model="newHero.powerLevel" placeholder="powerLevel">
+			<input type="text" ng-model="newHero.sidekick" placeholder="sidekick">
+			<input type="text" ng-model="newHero.weaknesses" placeholder="weaknesses">
+			<input type="text" ng-model="newHero.costume" placeholder="costume">
+			<input type="text" ng-model="newHero.archNemesis" placeholder="archNemesis">
+			<input type="submit">
+		</form>
+		<script src="../js/main.js"></script>
+	</body>
+</html>

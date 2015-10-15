@@ -1,0 +1,20 @@
+Steps to creating an app....
+
+1. Set up form.
+
+2. Set up post request in Angular file.
+
+3. Set up Model, with mongoose required, and set the Schema.
+	(Have three different models if you have, say, three different things being modeled, like character, world, etc)
+	If you want something to be Schema-less and accept any type of data, just set it to an empty object:
+		archNemesis : {type:Boolean},
+		costume     : {},
+
+4. Call Mongoose.connect in only one place, most practically the app.js file. This has to happen before you call mongoose.model.
+
+5. Set up controller which requires model. The controller contains the routes relevant to the Schema. In here, you create a document, THEN you must save it to the database with "save()"
+
+6. IN app.js, require the controller. Set up route to create a new instance of whatever the form submitted!!! You can use api. As the second argument, after the filepath, pass in the name of the controller, and call the "create instance of whatever" method on it.
+
+7. If you have arrays in your schema, make sure to set up a way to turn strings into array, as all inputs are strings. So, go back to your CONTROLLER and set each property to request.body.property. In the case of a number, it should be +request.body.property. For a Boolean, you can do request.body.archNemesis === "true" ? true : false. Strings can just be request.body.property because everything the user submits is a string. As for arrays....
+request.body.property.split(", ")
