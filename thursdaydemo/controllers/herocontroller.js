@@ -32,6 +32,13 @@ var createHero = function ( request, response){
 
 }
 
+var getHeroes = function(request,response){
+	Hero.find({},function(err,docs){
+		response.send(docs)
+	})
+}
+
 module.exports = {
-	createHero : createHero
+	createHero : createHero,
+	getHeroes  : getHeroes,
 }

@@ -12,4 +12,8 @@ angular.module("heroesApp").controller("heroesController",["$scope","$http",func
 		})
 	}
 
+	$http.get("api/heroes").then(function(returnData){
+		$scope.heroes = returnData.data
+	})
+
 }])

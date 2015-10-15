@@ -18,3 +18,16 @@ Steps to creating an app....
 
 7. If you have arrays in your schema, make sure to set up a way to turn strings into array, as all inputs are strings. So, go back to your CONTROLLER and set each property to request.body.property. In the case of a number, it should be +request.body.property. For a Boolean, you can do request.body.archNemesis === "true" ? true : false. Strings can just be request.body.property because everything the user submits is a string. As for arrays....
 request.body.property.split(", ")
+
+8. In angular file, make a get request to the api/heroes file to get the information you actually want to display on the page. In "then", set $scope.heroes to returnData.data. 
+
+9. In app.js. set get route for api/heroes, calling the getheroes method(which you haven't made yet) on herocontroller.
+
+10. In controller, make a getHeroes function that finds all the heroes in the data base. You will call this as a method on the controller, in the route on app.js
+
+Then, to have a page for an individual hero...
+1. make a new controller in your angular file
+2. within that controller, "get" the specific hero, by using the id and a parameterized route
+3. Add anchor tags and href to the hero on the homepage, with a link to the dynamic route.
+4. Add a new get route to app.js (like "api/heroes/:heroName",heroController.findHeroes)
+4. 
